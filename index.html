@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Learning Vue.js</title>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link href="app.css" rel="stylesheet">
+    </head>
+    <body>
+        <div id="app" class="container">
+            <div class="row">
+                <div v-bind:class="messages.length > 0 ? 'col-5' : 'col-12'">
+                    <form id="post-form" v-on:submit.prevent="onSubmit">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input id="name" class="form-control" v-model="name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input id="email" class="form-control" v-model="email">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Your Message <label v-bind:class="{'text-danger': outOfCharacters}">({{ charactersLeft }})</label></label>
+                            <textarea id="message" class="form-control" v-model="message"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="submit" value="Post" class="form-control" v-bind:disabled="!canSubmit || outOfCharacters">
+                        </div>
+                    </form>
+                </div>
+
+                <div class="col-7">
+                    <ul class="list-group">
+                        <li v-for="message in messages" class="list-group-item card post">
+                            <h5 class="card-title">{{ message.name }}</h5>
+                            <p class="card-text">{{ message.message }}</p>
+                            <a :href="`mailto:${message.email}`" class="btn btn-primary">Send Email</a>
+                            <p class="post-date">{{ message.date }}</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+        <script src="app.js"></script>
+    </body>
+</html>

@@ -1,0 +1,23 @@
+#app {
+    margin-top: 32px;
+}
+
+#post-form #message {
+    height: 120px;
+}
+
+.post {
+    margin-bottom: 5px;
+}
+
+.post-date {
+    position: absolute;
+    bottom: -12px;
+    right: 6px;
+    font-size: 13px;
+    color: lightgray;
+}
+
+.text-danger {
+    color: red;
+}
