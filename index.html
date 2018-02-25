@@ -12,7 +12,7 @@
     <body>
         <div id="app" class="container">
             <div class="row">
-                <div v-bind:class="messages.length > 0 ? 'col-5' : 'col-12'">
+                <div v-bind:class="posts.length > 0 ? 'col-5' : 'col-12'">
                     <form id="post-form" v-on:submit.prevent="onSubmit">
                         <div class="form-group">
                             <label for="name">Your Name</label>
@@ -37,11 +37,11 @@
 
                 <div class="col-7">
                     <ul class="list-group">
-                        <li v-for="message in messages" class="list-group-item card post">
-                            <h5 class="card-title">{{ message.name }}</h5>
-                            <p class="card-text">{{ message.message }}</p>
-                            <a :href="`mailto:${message.email}`" class="btn btn-primary">Send Email</a>
-                            <p class="post-date">{{ message.date }}</p>
+                        <li v-for="post in posts" class="list-group-item card post">
+                            <h5 class="card-title">{{ post.name }}</h5>
+                            <p class="card-text">{{ post.message }}</p>
+                            <a :href="`mailto:${post.email}`" class="btn btn-primary">Send Email</a>
+                            <p class="post-date">{{ post.date }}</p>
                         </li>
                     </ul>
                 </div>

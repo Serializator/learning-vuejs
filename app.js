@@ -4,7 +4,7 @@ var vue = new Vue({
         name: "",
         email: "",
         message: "",
-        messages: [],
+        posts: [],
     },
     computed: {
         charactersLeft: function() {
@@ -20,7 +20,7 @@ var vue = new Vue({
     methods: {
         onSubmit: function() {
             if(this.canSubmit) {
-                this.messages.unshift({
+                this.posts.unshift({
                     name: this.name,
                     email: this.email,
                     message: this.message,
