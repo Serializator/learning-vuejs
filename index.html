@@ -35,16 +35,9 @@
                     </form>
                 </div>
 
-                <div class="col-7">
-                    <ul class="list-group">
-                        <li v-for="post in posts" class="list-group-item card post">
-                            <h5 class="card-title">{{ post.name }}</h5>
-                            <p class="card-text">{{ post.message }}</p>
-                            <a :href="`mailto:${post.email}`" class="btn btn-primary">Send Email</a>
-                            <p class="post-date">{{ post.date }}</p>
-                        </li>
-                    </ul>
-                </div>
+                <posts class="col-7">
+                    <post v-for="post in posts" :key="post.id" :name="post.name" :email="post.email" :message="post.message" :date="post.date"></post>
+                </posts>
             </div>
         </div>
 
